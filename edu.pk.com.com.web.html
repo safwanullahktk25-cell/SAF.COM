@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Saf.com - Learn Programming Languages</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Navbar */
+    nav {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav strong {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    nav a.hide {
+      display: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      min-height: 70vh;
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    /* Home Section */
+    #home {
+      text-align: center;
+    }
+
+    #home h1 {
+      font-size: 2.5rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.3s;
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Courses Grid */
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .course {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .course:hover {
+      transform: translateY(-5px);
+    }
+
+    .course h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    .course p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    /* Authentication */
+    .auth-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .auth-form {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .auth-form h2 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .auth-form input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+    }
+
+    .auth-form button {
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .auth-form button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Course Content */
+    .course-view {
+      margin-top: 2rem;
+    }
+
+    .course-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .course-header h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .lessons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .lesson {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lesson:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-color: #667eea;
+    }
+
+    .lesson h3 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-detail {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .lesson-detail h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-detail p {
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-detail pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .lesson-detail code {
+      background: #f5f5f5;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      color: #d63384;
+    }
+
+    .lesson-detail pre code {
+      background: none;
+      color: #f8f8f2;
+      padding: 0;
+    }
+
+    .lesson-detail ul, .lesson-detail ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-detail li {
+      margin-bottom: 0.5rem;
+    }
+
+    .back-btn {
+      background: #667eea;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background: #764ba2;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .auth-container {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 0.5rem;
+      }
+
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      #home h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <strong>Professional Saf.com</strong>
+    <div>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('courses')">Courses</a>
+      <a id="loginNav" onclick="showSection('auth')">Login</a>
+      <a id="logoutNav" class="hide" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Home Section -->
+    <section id="home">
+      <h1>Welcome to Professional Saf.com!</h1>
+      <p>Master programming languages with our comprehensive courses</p>
+      <p>Learn C, C++, Python, and HTML with practical examples and exercises</p>
+      <button class="btn" onclick="showSection('courses')">Explore Courses</button>
+      <button class="btn" onclick="showSection('auth')">Login / Sign Up</button>
+    </section>
+
+    <!-- Authentication Section -->
+    <section id="auth" class="hide">
+      <h1>User Account</h1>
+      <div class="auth-container">
+        <!-- Login Form -->
+        <div class="auth-form">
+          <h2>Login</h2>
+          <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="auth-form">
+          <h2>Create Account</h2>
+          <form id="signupForm">
+            <input type="text" id="signupName" placeholder="Full name" required>
+            <input type="email" id="signupEmail" placeholder="Email address" required>
+            <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required>
+            <input type="password" id="signupConfirm" placeholder="Confirm password" required>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="hide">
+      <h1>Available Courses</h1>
+      <div class="courses">
+        <div class="course">
+          <h2>C Programming</h2>
+          <p>Learn the fundamentals of C programming language. Master variables, functions, pointers, and memory management.</p>
+          <button class="btn" onclick="showCourse('c')">View Course</button>
+        </div>
+        <div class="course">
+          <h2>C++ Programming</h2>
+          <p>Master object-oriented programming with C++. Learn classes, inheritance, polymorphism, and advanced concepts.</p>
+          <button class="btn" onclick="showCourse('cpp')">View Course</button>
+        </div>
+        <div class="course">
+          <h2>Python Programming</h2>
+          <p>Discover the power of Python. Perfect for beginners and professionals. Learn data structures, libraries, and more.</p>
+          <button class="btn" onclick="showCourse('python')">View Course</button>
+        </div>
+        <div class="course">
+          <h2>HTML & Web Development</h2>
+          <p>Build web pages with HTML. Learn semantic markup, forms, and best practices for web development.</p>
+          <button class="btn" onclick="showCourse('html')">View Course</button>
+        </div>
+      </div>
+      <div id="courseContent"></div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Professional Saf.com. All rights reserved. | Powered by Muhammad Safwan Ullah</p>
+  </footer>
+
+  <script>
+    // ===== SECTION MANAGEMENT =====
+    function showSection(id) {
+      ['home', 'auth', 'courses'].forEach(s => {
+        const el = document.getElementById(s);
+        if (el) el.classList.add('hide');
+      });
+      const target = document.getElementById(id);
+      if (target) target.classList.remove('hide');
+      if (id === 'courses') document.getElementById('courseContent').innerHTML = '';
+    }
+
+    // ===== AUTHENTICATION =====
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === email && u.password === password);
+      
+      if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        alert('Login successful!');
+        updateNavigation();
+        showSection('courses');
+        this.reset();
+      } else {
+        alert('Invalid email or password');
+      }
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      const confirm = document.getElementById('signupConfirm').value;
+      
+      if (password !== confirm) {
+        alert('Passwords do not match!');
+        return;
+      }
+      
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters!');
+        return;
+      }
+      
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      
+      if (users.find(u => u.email === email)) {
+        alert('Email already registered!');
+        return;
+      }
+      
+      const newUser = {
+        id: Date.now(),
+        name: name,
+        email: email,
+        password: password,
+        createdAt: new Date().toISOString()
+      };
+      
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
+      
+      alert('Account created successfully!');
+      updateNavigation();
+      showSection('courses');
+      this.reset();
+    });
+
+    function logout() {
+      localStorage.removeItem('currentUser');
+      updateNavigation();
+      showSection('home');
+    }
+
+    function updateNavigation() {
+      const currentUser = localStorage.getItem('currentUser');
+      const loginNav = document.getElementById('loginNav');
+      const logoutNav = document.getElementById('logoutNav');
+      
+      if (currentUser) {
+        const user = JSON.parse(currentUser);
+        loginNav.classList.add('hide');
+        logoutNav.classList.remove('hide');
+        logoutNav.textContent = `Logout (${user.name})`;
+      } else {
+        loginNav.classList.remove('hide');
+        logoutNav.classList.add('hide');
+      }
+    }
+
+    // ===== COURSE DATA =====
+    const coursesData = {
+      c: {
+        title: "C Programming",
+        description: "Master the fundamentals of C programming language",
+        lessons: [
+          {
+            title: "Introduction to C",
+            content: `
+              <h2>What is C?</h2>
+              <p>C is a general-purpose, procedural programming language created by Dennis Ritchie in 1972. It's one of the most influential programming languages and forms the foundation for many modern languages.</p>
+              
+              <h2>Why Learn C?</h2>
+              <ul>
+                <li>Efficient and fast execution</li>
+                <li>Portable across platforms</li>
+                <li>Foundation for understanding computer systems</li>
+                <li>Used in operating systems, embedded systems, and databases</li>
+              </ul>
+              
+              <h2>Your First C Program</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\\n");
+    return 0;
+}</code></pre>
+              
+              <h2>How to Run</h2>
+              <ol>
+                <li>Save the code in a file: <code>hello.c</code></li>
+                <li>Compile: <code>gcc hello.c -o hello</code></li>
+                <li>Run: <code>./hello</code></li>
+              </ol>
+            `
+          },
+          {
+            title: "Variables and Data Types",
+            content: `
+              <h2>Variables</h2>
+              <p>Variables are containers for storing data values. In C, you must declare the type of a variable before using it.</p>
+              
+              <h2>Basic Data Types</h2>
+              <ul>
+                <li><code>int</code> - Integer (whole numbers)</li>
+                <li><code>float</code> - Floating point (decimal numbers)</li>
+                <li><code>double</code> - Double precision floating point</li>
+                <li><code>char</code> - Single character</li>
+              </ul>
+              
+              <h2>Example</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 25;
+    float height = 5.9;
+    char grade = 'A';
+    
+    printf("Age: %d\\n", age);
+    printf("Height: %.1f\\n", height);
+    printf("Grade: %c\\n", grade);
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Operators",
+            content: `
+              <h2>Arithmetic Operators</h2>
+              <ul>
+                <li><code>+</code> - Addition</li>
+                <li><code>-</code> - Subtraction</li>
+                <li><code>*</code> - Multiplication</li>
+                <li><code>/</code> - Division</li>
+                <li><code>%</code> - Modulus (remainder)</li>
+              </ul>
+              
+              <h2>Example</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 3;
+    
+    printf("Addition: %d\\n", a + b);      // 13
+    printf("Subtraction: %d\\n", a - b);   // 7
+    printf("Multiplication: %d\\n", a * b);// 30
+    printf("Division: %d\\n", a / b);      // 3
+    printf("Modulus: %d\\n", a % b);       // 1
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Control Statements",
+            content: `
+              <h2>If Statement</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 18;
+    
+    if (age >= 18) {
+        printf("You are an adult\\n");
+    } else {
+        printf("You are a minor\\n");
+    }
+    
+    return 0;
+}</code></pre>
+              
+              <h2>For Loop</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\\n", i);
+    }
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Functions",
+            content: `
+              <h2>Creating Functions</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+
+// Function declaration
+int add(int a, int b);
+
+int main() {
+    int result = add(5, 3);
+    printf("Sum: %d\\n", result);
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}</code></pre>
+              
+              <h2>Function Benefits</h2>
+              <ul>
+                <li>Code reusability</li>
+                <li>Better organization</li>
+                <li>Easier debugging</li>
+              </ul>
+            `
+          },
+          {
+            title: "Arrays",
+            content: `
+              <h2>Arrays</h2>
+              <p>Arrays store multiple values of the same type in a single variable.</p>
+              
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int numbers[5] = {10, 20, 30, 40, 50};
+    
+    for (int i = 0; i < 5; i++) {
+        printf("Element %d: %d\\n", i, numbers[i]);
+    }
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Pointers",
+            content: `
+              <h2>Understanding Pointers</h2>
+              <p>Pointers store memory addresses of variables. They're crucial in C for dynamic memory allocation and advanced data structures.</p>
+              
+              <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int x = 10;
+    int *ptr = &x;  // ptr stores address of x
+    
+    printf("Value of x: %d\\n", x);
+    printf("Address of x: %p\\n", (void*)&x);
+    printf("Value at ptr: %d\\n", *ptr);
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Strings and File I/O",
+            content: `
+              <h2>Working with Strings</h2>
+              <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char name[50];
+    
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    
+    printf("Hello, %s", name);
+    
+    return 0;
+}</code></pre>
+              
+              <h2>File Operations</h2>
+              <ul>
+                <li><code>fopen()</code> - Open a file</li>
+                <li><code>fwrite()</code> - Write to file</li>
+                <li><code>fread()</code> - Read from file</li>
+                <li><code>fclose()</code> - Close file</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      cpp: {
+        title: "C++ Programming",
+        description: "Master object-oriented programming with C++",
+        lessons: [
+          {
+            title: "Introduction to C++",
+            content: `
+              <h2>What is C++?</h2>
+              <p>C++ is an extension of C that adds object-oriented programming features. It's widely used for system software, game development, and performance-critical applications.</p>
+              
+              <h2>Your First C++ Program</h2>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}</code></pre>
+              
+              <h2>C++ vs C</h2>
+              <ul>
+                <li>Object-oriented programming</li>
+                <li>Standard Template Library (STL)</li>
+                <li>Exception handling</li>
+                <li>Namespaces</li>
+              </ul>
+            `
+          },
+          {
+            title: "Classes and Objects",
+            content: `
+              <h2>Creating a Class</h2>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Person {
+  public:
+    string name;
+    int age;
+    
+    void greet() {
+        cout << "Hello, I'm " << name << endl;
+    }
+};
+
+int main() {
+    Person person;
+    person.name = "John";
+    person.age = 30;
+    person.greet();
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Inheritance",
+            content: `
+              <h2>Understanding Inheritance</h2>
+              <p>Inheritance allows a class to inherit properties and methods from another class.</p>
+              
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Animal {
+  public:
+    void eat() {
+        cout << "Eating..." << endl;
+    }
+};
+
+class Dog : public Animal {
+  public:
+    void bark() {
+        cout << "Woof!" << endl;
+    }
+};
+
+int main() {
+    Dog dog;
+    dog.eat();   // Inherited method
+    dog.bark();  // Own method
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Polymorphism",
+            content: `
+              <h2>Virtual Functions</h2>
+              <p>Polymorphism allows functions to have different behaviors based on the object calling them.</p>
+              
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Shape {
+  public:
+    virtual void draw() {
+        cout << "Drawing shape" << endl;
+    }
+};
+
+class Circle : public Shape {
+  public:
+    void draw() override {
+        cout << "Drawing circle" << endl;
+    }
+};
+
+int main() {
+    Shape *shape = new Circle();
+    shape->draw();  // Calls Circle's draw()
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Constructors and Destructors",
+            content: `
+              <h2>Constructors and Destructors</h2>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Box {
+  private:
+    int width;
+  public:
+    // Constructor
+    Box(int w) {
+        width = w;
+        cout << "Box created" << endl;
+    }
+    
+    // Destructor
+    ~Box() {
+        cout << "Box destroyed" << endl;
+    }
+};
+
+int main() {
+    Box box(5);
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "STL Containers",
+            content: `
+              <h2>Vector Container</h2>
+              <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    
+    numbers.push_back(6);
+    cout << "Size: " << numbers.size() << endl;
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Exception Handling",
+            content: `
+              <h2>Try-Catch Blocks</h2>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    try {
+        int x = 5, y = 0;
+        if (y == 0) {
+            throw runtime_error("Division by zero!");
+        }
+        cout << x / y << endl;
+    }
+    catch (const exception& e) {
+        cout << "Error: " << e.what() << endl;
+    }
+    
+    return 0;
+}</code></pre>
+            `
+          },
+          {
+            title: "Templates",
+            content: `
+              <h2>Generic Programming with Templates</h2>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+template <typename T>
+T maximum(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    cout << maximum(5, 10) << endl;        // 10
+    cout << maximum(3.5, 2.1) << endl;     // 3.5
+    cout << maximum('A', 'B') << endl;     // B
+    
+    return 0;
+}</code></pre>
+            `
+          }
+        ]
+      },
+      python: {
+        title: "Python Programming",
+        description: "Master Python for all applications",
+        lessons: [
+          {
+            title: "Getting Started with Python",
+            content: `
+              <h2>What is Python?</h2>
+              <p>Python is a high-level, interpreted programming language known for its simplicity and readability. It's perfect for beginners and professionals alike.</p>
+              
+              <h2>Your First Python Program</h2>
+              <pre><code>print("Hello, World!")</code></pre>
+              
+              <h2>Why Python?</h2>
+              <ul>
+                <li>Easy to learn and read</li>
+                <li>Versatile (web, data science, AI, automation)</li>
+                <li>Large community and libraries</li>
+                <li>Fast development</li>
+              </ul>
+            `
+          },
+          {
+            title: "Variables and Data Types",
+            content: `
+              <h2>Python Data Types</h2>
+              <pre><code># Integers
+age = 25
+
+# Floats
+height = 5.9
+
+# Strings
+name = "John Doe"
+
+# Booleans
+is_student = True
+
+# Lists
+numbers = [1, 2, 3, 4, 5]
+
+# Dictionaries
+person = {"name": "John", "age": 25}
+
+# Print them
+print(f"Name: {name}, Age: {age}")
+print(f"Numbers: {numbers}")
+print(f"Person: {person}")</code></pre>
+            `
+          },
+          {
+            title: "Operators and Expressions",
+            content: `
+              <h2>Arithmetic Operators</h2>
+              <pre><code>a = 10
+b = 3
+
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a / b)   # 3.333...
+print(a // b)  # 3 (floor division)
+print(a % b)   # 1 (modulus)
+print(a ** b)  # 1000 (exponentiation)</code></pre>
+              
+              <h2>Comparison Operators</h2>
+              <pre><code>print(10 > 5)   # True
+print(10 < 5)   # False
+print(10 == 10) # True
+print(10 != 5)  # True</code></pre>
+            `
+          },
+          {
+            title: "Control Statements",
+            content: `
+              <h2>If-Elif-Else</h2>
+              <pre><code>age = 18
+
+if age >= 18:
+    print("You are an adult")
+elif age >= 13:
+    print("You are a teenager")
+else:
+    print("You are a child")</code></pre>
+              
+              <h2>For Loop</h2>
+              <pre><code>for i in range(1, 6):
+    print(i)</code></pre>
+              
+              <h2>While Loop</h2>
+              <pre><code>count = 1
+while count <= 5:
+    print(count)
+    count += 1</code></pre>
+            `
+          },
+          {
+            title: "Functions",
+            content: `
+              <h2>Defining Functions</h2>
+              <pre><code>def greet(name):
+    return f"Hello, {name}!"
+
+def add(a, b):
+    return a + b
+
+# Calling functions
+print(greet("John"))
+print(add(5, 3))</code></pre>
+              
+              <h2>Default Parameters</h2>
+              <pre><code>def greet(name="Guest"):
+    return f"Hello, {name}!"
+
+print(greet())        # Hello, Guest!
+print(greet("Alice")) # Hello, Alice!</code></pre>
+            `
+          },
+          {
+            title: "Lists and Dictionaries",
+            content: `
+              <h2>Working with Lists</h2>
+              <pre><code>fruits = ["apple", "banana", "orange"]
+
+# Access
+print(fruits[0])        # apple
+
+# Add
+fruits.append("grape")
+
+# Remove
+fruits.remove("banana")
+
+# Iterate
+for fruit in fruits:
+    print(fruit)</code></pre>
+              
+              <h2>Working with Dictionaries</h2>
+              <pre><code>person = {
+    "name": "John",
+    "age": 30,
+    "email": "john@example.com"
+}
+
+print(person["name"])  # John
+person["age"] = 31
+del person["email"]</code></pre>
+            `
+          },
+          {
+            title: "String Operations",
+            content: `
+              <h2>String Methods</h2>
+              <pre><code>text = "Hello, World!"
+
+# Common methods
+print(text.lower())     # hello, world!
+print(text.upper())     # HELLO, WORLD!
+print(text.replace("World", "Python"))  # Hello, Python!
+print(len(text))        # 13
+print(text.split(","))  # ['Hello', ' World!']</code></pre>
+              
+              <h2>String Formatting</h2>
+              <pre><code>name = "Alice"
+age = 25
+
+# Using f-strings
+print(f"{name} is {age} years old")
+
+# Using format()
+print("{} is {} years old".format(name, age))</code></pre>
+            `
+          },
+          {
+            title: "File Handling",
+            content: `
+              <h2>Reading and Writing Files</h2>
+              <pre><code># Writing to a file
+with open("file.txt", "w") as f:
+    f.write("Hello, World!")
+
+# Reading from a file
+with open("file.txt", "r") as f:
+    content = f.read()
+    print(content)</code></pre>
+              
+              <h2>Reading Line by Line</h2>
+              <pre><code>with open("file.txt", "r") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+            `
+          }
+        ]
+      },
+      html: {
+        title: "HTML & Web Development",
+        description: "Build web pages with HTML",
+        lessons: [
+          {
+            title: "Introduction to HTML",
+            content: `
+              <h2>What is HTML?</h2>
+              <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It provides the structure and content of websites.</p>
+              
+              <h2>Basic HTML Document</h2>
+              <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to HTML!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              
+              <h2>HTML Document Structure</h2>
+              <ul>
+                <li>&lt;!DOCTYPE html&gt; - Declares the document type</li>
+                <li>&lt;html&gt; - Root element</li>
+                <li>&lt;head&gt; - Contains metadata</li>
+                <li>&lt;body&gt; - Contains visible content</li>
+              </ul>
+            `
+          },
+          {
+            title: "Tags and Elements",
+            content: `
+              <h2>Common HTML Tags</h2>
+              <ul>
+                <li><code>&lt;h1&gt; to &lt;h6&gt;</code> - Headings</li>
+                <li><code>&lt;p&gt;</code> - Paragraph</li>
+                <li><code>&lt;a&gt;</code> - Hyperlink</li>
+                <li><code>&lt;img&gt;</code> - Image</li>
+                <li><code>&lt;div&gt;</code> - Container</li>
+              </ul>
+              
+              <h2>Example</h2>
+              <pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;Click here&lt;/a&gt;
+&lt;img src="image.jpg" alt="Description"&gt;</code></pre>
+            `
+          },
+          {
+            title: "Lists and Tables",
+            content: `
+              <h2>Unordered Lists</h2>
+              <pre><code>&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+              
+              <h2>Ordered Lists</h2>
+              <pre><code>&lt;ol&gt;
+    &lt;li&gt;First&lt;/li&gt;
+    &lt;li&gt;Second&lt;/li&gt;
+    &lt;li&gt;Third&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+              
+              <h2>Tables</h2>
+              <pre><code>&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            `
+          },
+          {
+            title: "Forms",
+            content: `
+              <h2>Creating Forms</h2>
+              <pre><code>&lt;form&gt;
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input type="text" name="name" required&gt;
+    
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input type="email" name="email" required&gt;
+    
+    &lt;label&gt;Password:&lt;/label&gt;
+    &lt;input type="password" name="password"&gt;
+    
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+              
+              <h2>Form Input Types</h2>
+              <ul>
+                <li>text - Text input</li>
+                <li>email - Email input</li>
+                <li>password - Password input</li>
+                <li>checkbox - Checkbox</li>
+                <li>radio - Radio button</li>
+                <li>submit - Submit button</li>
+              </ul>
+            `
+          },
+          {
+            title: "Semantic HTML",
+            content: `
+              <h2>Semantic Elements</h2>
+              <p>Semantic elements describe the meaning of their content:</p>
+              
+              <pre><code>&lt;header&gt;
+    &lt;nav&gt;Navigation menu&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h1&gt;Article Title&lt;/h1&gt;
+        &lt;p&gt;Article content...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    Sidebar content
+&lt;/aside&gt;
+
+&lt;footer&gt;
+    Footer content
+&lt;/footer&gt;</code></pre>
+              
+              <h2>Benefits</h2>
+              <ul>
+                <li>Better SEO</li>
+                <li>Improved accessibility</li>
+                <li>Cleaner code</li>
+              </ul>
+            `
+          },
+          {
+            title: "Attributes and Meta Tags",
+            content: `
+              <h2>Common Attributes</h2>
+              <pre><code>&lt;div id="main" class="container"&gt;...&lt;/div&gt;
+&lt;img src="image.jpg" alt="Image description" width="200" height="150"&gt;
+&lt;a href="page.html" target="_blank"&gt;Link&lt;/a&gt;</code></pre>
+              
+              <h2>Meta Tags</h2>
+              <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="description" content="Page description"&gt;
+&lt;meta name="keywords" content="HTML, CSS, JavaScript"&gt;
+&lt;meta name="author" content="Your Name"&gt;</code></pre>
+            `
+          },
+          {
+            title: "HTML Best Practices",
+            content: `
+              <h2>Best Practices</h2>
+              <ul>
+                <li>Always use semantic HTML</li>
+                <li>Validate your HTML code</li>
+                <li>Use meaningful tag names</li>
+                <li>Include alt text for images</li>
+                <li>Use proper heading hierarchy</li>
+                <li>Keep your code organized and readable</li>
+              </ul>
+              
+              <h2>Accessibility Tips</h2>
+              <ul>
+                <li>Use alt attributes for images</li>
+                <li>Use proper heading levels</li>
+                <li>Provide form labels</li>
+                <li>Use semantic elements</li>
+                <li>Ensure sufficient color contrast</li>
+              </ul>
+            `
+          }
+        ]
+      }
+    };
+
+    // ===== COURSE DISPLAY =====
+    function showCourse(courseKey) {
+      const course = coursesData[courseKey];
+      let html = `
+        <div class="course-view">
+          <a class="back-btn" onclick="showSection('courses')">← Back to Courses</a>
+          <div class="course-header">
+            <h1>${course.title}</h1>
+            <p>${course.description}</p>
+          </div>
+          <h2>Lessons</h2>
+          <div class="lessons">
+      `;
+      
+      course.lessons.forEach((lesson, index) => {
+        html += `
+          <div class="lesson" onclick="showLesson('${courseKey}', ${index})">
+            <h3>Lesson ${index + 1}</h3>
+            <p>${lesson.title}</p>
+          </div>
+        `;
+      });
+      
+      html += `
+          </div>
+          <div id="lessonDetail"></div>
+        </div>
+      `;
+      
+      document.getElementById('courseContent').innerHTML = html;
+    }
+
+    function showLesson(courseKey, lessonIndex) {
+      const course = coursesData[courseKey];
+      const lesson = course.lessons[lessonIndex];
+      
+      const lessonDetailDiv = document.getElementById('lessonDetail');
+      lessonDetailDiv.innerHTML = `
+        <div class="lesson-detail">
+          <button class="back-btn" onclick="showCourse('${courseKey}')">← Back to Lessons</button>
+          <h2>Lesson ${lessonIndex + 1}: ${lesson.title}</h2>
+          ${lesson.content}
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+            ${lessonIndex > 0 ? `<button class="btn" onclick="showLesson('${courseKey}', ${lessonIndex - 1})">← Previous Lesson</button>` : ''}
+            ${lessonIndex < course.lessons.length - 1 ? `<button class="btn" onclick="showLesson('${courseKey}', ${lessonIndex + 1})">Next Lesson →</button>` : '<p><strong>✓ You have completed all lessons in this course!</strong></p>'}
+          </div>
+        </div>
+      `;
+      lessonDetailDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initialize
+    updateNavigation();
+    showSection('home');
+  </script>
+</body>
+</html>
